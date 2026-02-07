@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<title>Burger Hut | Burgers • Chinese • Italian</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Burger Hut – Burgers, Chinese & Italian under one roof.">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class'}</script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<style>
+/* ===== Burger Layer Animation (UNCHANGED) ===== */
+.real-burger{position:relative;width:280px;height:340px;cursor:pointer}
+.real-burger img{position:absolute;left:50%;transform:translateX(-50%);transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.bun-top{top:0;z-index:6}
+.lettuce{top:65px;z-index:5}
+.cheese{top:100px;z-index:4}
+.patty{top:125px;z-index:3}
+.sauce{top:160px;z-index:2}
+.bun-bottom{top:180px;z-index:1}
+.real-burger:hover .bun-top{transform:translate(-50%,-80px)}
+.real-burger:hover .lettuce{transform:translate(-50%,-40px)}
+.real-burger:hover .cheese{transform:translate(-50%,-20px)}
+.real-burger:hover .patty{transform:translate(-50%,20px)}
+.real-burger:hover .sauce{transform:translate(-50%,40px)}
+.real-burger:hover .bun-bottom{transform:translate(-50%,80px)}
+@media(max-width:768px){.real-burger:hover img{transform:translateX(-50%)}}
+
+.card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(14px);
+  transition:.4s;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 30px 60px rgba(252,191,73,.18);
+}
+</style>
+</head>
+
+<body class="bg-[#0b0b0b] text-gray-100">
+
+<!-- HEADER -->
+<header class="fixed top-0 w-full z-50 bg-black/60 backdrop-blur border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
+    <span class="text-xl font-extrabold tracking-widest text-[#fcbf49]">BURGER HUT</span>
+    <nav class="hidden md:flex gap-8 text-sm uppercase tracking-wide">
+      <a href="menu.html" class="hover:text-[#fcbf49]">Menu</a>
+      <a href="#combos" class="hover:text-[#fcbf49]">Combos</a>
+      <a href="#offers" class="hover:text-[#fcbf49]">Offers</a>
+      <a href="#location" class="hover:text-[#fcbf49]">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO (UNCHANGED) -->
+<section class="min-h-screen pt-32 flex items-center">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14 items-center">
+    <div>
+      <p class="text-[#fcbf49] uppercase tracking-[0.3em] text-sm mb-4">Crafted With Precision</p>
+      <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">
+        Not Just a Burger.<br><span class="text-[#fcbf49]">A Composition.</span>
+      </h1>
+      <p class="mt-6 text-gray-400 max-w-md">
+        Burgers, Chinese & Italian — perfectly layered for every craving.
+      </p>
+      <div class="flex gap-4 mt-8">
+        <button class="px-8 py-3 bg-[#fcbf49] text-black rounded-full font-semibold">
+          <a href="menu.html">Explore Menu</a>
+        </button>
+        <button onclick="payNow()" class="px-8 py-3 border border-[#fcbf49] rounded-full">
+          Pay ₹99
+        </button>
+      </div>
+    </div>
+    <div class="flex justify-center">
+      <div class="real-burger">
+        <img src="assets/bun-top.png" class="bun-top">
+        <img src="assets/lettuce.png" class="lettuce">
+        <img src="assets/cheese.png" class="cheese">
+        <img src="assets/patty.png" class="patty">
+        <img src="assets/sauce.png" class="sauce">
+        <img src="assets/bun-bottom.png" class="bun-bottom">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- BURGERS -->
+<section class="py-24 bg-[#111]">
+  <div class="max-w-7xl mx-auto px-6 mb-14 flex items-center justify-between">
+  <h2 class="text-3xl font-bold">🍔 Burgers</h2>
+
+  <a href="burger.html"
+     class="group flex items-center gap-2 text-[#fcbf49] font-medium hover:gap-3 transition-all ">
+    See more →
+  </a>
+</div>
+
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+    <div class="card rounded-xl overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d" class="h-48 w-full object-cover">
+      <div class="p-6 text-center">Classic Cheese Burger</div>
+    </div>
+    <div class="card rounded-xl overflow-hidden">
+      <img src="assets/double-patty.jpg" class="h-48 w-full object-fit">
+      <div class="p-6 text-center">Double Patty Burger</div>
+    </div>
+    <div class="card rounded-xl overflow-hidden">
+      <img src="assets/veg burger.jpg" class="h-48 w-full object-fit">
+      <div class="p-6 text-center">Veg Supreme</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHINESE -->
+<section class="py-24">
+<div class="max-w-7xl mx-auto px-6 mb-14 flex items-center justify-between">
+  <h2 class="text-3xl font-bold">🥢 Chinese</h2>
+
+  <a href="chinese.html"
+     class="group flex items-center gap-2 text-[#fcbf49] font-medium hover:gap-3 transition-all">
+    See more →
+  </a>
+</div>
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+    <div class="card rounded-xl overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1585032226651-759b368d7246" class="h-48 w-full object-cover">
+      <div class="p-6 text-center">Hakka Noodles</div>
+    </div>
+    <div class="card rounded-xl overflow-hidden">
+      <img src="assets/momos.jpg" class="h-48 w-full object-fit">
+      <div class="p-6 text-center">Momos</div>
+    </div>
+    <div class="card rounded-xl overflow-hidden">
+      <img src="assets/fried rice.jpg" class="h-48 w-full object-fit">
+      <div class="p-6 text-center">Fried Rice</div>
+    </div>
+  </div>
+</section>
+
+<!-- ITALIAN -->
+<section class="py-24 bg-[#111]">
+<div class="max-w-7xl mx-auto px-6 mb-14 flex items-center justify-between">
+  <h2 class="text-3xl font-bold">🍕 Italian</h2>
+
+  <a href="italian.html"
+     class="group flex items-center gap-2 text-[#fcbf49] font-medium hover:gap-3 transition-all">
+    See more →
+  </a>
+</div>  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+    <div class="card rounded-xl overflow-hidden">
+      <img src="assets/Margherita.jpg" class="h-48 w-full object-fit">
+      <div class="p-6 text-center">Margherita Pizza</div>
+    </div>
+    <div class="card rounded-xl overflow-hidden">
+      <img src="assets/white pasta.jpg" class="h-48 w-full object-fit">
+      <div class="p-6 text-center">White Sauce Pasta</div>
+    </div>
+    <div class="card rounded-xl overflow-hidden">
+      <img src="assets/garlic bread.jpg" class="h-48 w-full object-fit">
+      <div class="p-6 text-center">Garlic Bread</div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location" class="py-24">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-14">
+    <div>
+      <h2 class="text-3xl font-bold mb-6">Visit or Order</h2>
+      <p class="text-gray-400">📍 Panipat, Haryana</p>
+      <p class="text-gray-400 mb-8">🕒 11 AM – 11 PM</p>
+      <a href="https://wa.me/91XXXXXXXXXX"
+         class="bg-[#25D366] text-black px-8 py-3 rounded-full font-semibold">
+        Order on WhatsApp
+      </a>
+    </div>
+    <iframe class="w-full h-80 rounded-xl"
+      src="https://maps.google.com/maps?q=panipat&t=&z=13&output=embed"></iframe>
+  </div>
+</section>
+
+<footer class="py-6 text-center text-gray-500 text-sm">
+  © 2026 Burger Hut • One Kitchen • Many Cravings
+</footer>
+
+<script>
+function payNow(){
+  new Razorpay({
+    key:"rzp_test_XXXXXXXX",
+    amount:29900,
+    currency:"INR",
+    name:"Burger Hut",
+    handler:()=>alert("Payment Successful"),
+    theme:{color:"#fcbf49"}
+  }).open();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<title>Burger Hut | Chinese Menu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Burger Hut Chinese Menu – Noodles, Fried Rice, Manchurian & more.">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class'}</script>
+
+<style>
+.card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(14px);
+  transition:.4s;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 30px 60px rgba(252,191,73,.18);
+}
+</style>
+</head>
+
+<body class="bg-[#0b0b0b] text-gray-100">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-50 bg-black/70 backdrop-blur border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="text-xl font-extrabold tracking-widest text-[#fcbf49]">
+      BURGER HUT
+    </a>
+    <a href="index.html" class="text-sm text-gray-400 hover:text-[#fcbf49]">
+      ← Back to Home
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="py-24 text-center">
+  <p class="text-[#fcbf49] uppercase tracking-[0.35em] text-sm mb-4">
+    Chinese Kitchen
+  </p>
+  <h1 class="text-4xl sm:text-5xl font-extrabold mb-6">
+    Wok-Tossed<br>
+    <span class="text-[#fcbf49]">Bold Flavours</span>
+  </h1>
+  <p class="text-gray-400 max-w-xl mx-auto">
+    From street-style noodles to spicy gravies — filter and enjoy authentic Chinese flavours.
+  </p>
+</section>
+
+<!-- FILTERS -->
+<section class="pb-16">
+  <div class="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-4">
+
+    <button onclick="filterMenu('all')" class="filter-btn px-6 py-2 rounded-full bg-[#fcbf49] text-black font-semibold">
+      All
+    </button>
+
+    <button onclick="filterMenu('veg')" class="filter-btn px-6 py-2 rounded-full border border-white/20 hover:border-[#fcbf49]">
+      Veg
+    </button>
+
+    <button onclick="filterMenu('nonveg')" class="filter-btn px-6 py-2 rounded-full border border-white/20 hover:border-[#fcbf49]">
+      Non-Veg
+    </button>
+
+    <button onclick="filterMenu('spicy')" class="filter-btn px-6 py-2 rounded-full border border-white/20 hover:border-[#fcbf49]">
+      Spicy
+    </button>
+
+    <button onclick="filterMenu('bestseller')" class="filter-btn px-6 py-2 rounded-full border border-white/20 hover:border-[#fcbf49]">
+      Best Seller
+    </button>
+
+  </div>
+</section>
+
+<!-- MENU GRID -->
+<section class="pb-28">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+
+    <!-- VEG -->
+    <div class="card rounded-xl overflow-hidden menu-item" data-category="veg">
+      <img src="assets/hakka-noodles.jpg" class="h-52 w-full object-cover">
+      <div class="p-6">
+        <h3 class="text-lg font-semibold mb-2">Veg Hakka Noodles</h3>
+        <p class="text-sm text-gray-400 mb-4">
+          Classic wok-tossed noodles with fresh veggies.
+        </p>
+        <div class="flex justify-between items-center">
+          <span class="text-[#fcbf49] font-bold text-lg">₹159</span>
+          <button class="px-5 py-2 bg-[#fcbf49] text-black rounded-full text-sm font-semibold">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NON VEG -->
+    <div class="card rounded-xl overflow-hidden menu-item" data-category="nonveg bestseller">
+      <img src="assets/chilli-chicken.jpg" class="h-52 w-full object-cover">
+      <div class="p-6">
+        <h3 class="text-lg font-semibold mb-2">Chilli Chicken</h3>
+        <p class="text-sm text-gray-400 mb-4">
+          Crispy chicken tossed in spicy sauce.
+        </p>
+        <div class="flex justify-between items-center">
+          <span class="text-[#fcbf49] font-bold text-lg">₹229</span>
+          <button class="px-5 py-2 bg-[#fcbf49] text-black rounded-full text-sm font-semibold">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- VEG -->
+    <div class="card rounded-xl overflow-hidden menu-item" data-category="veg spicy">
+      <img src="assets/veg-manchurian.jpg" class="h-52 w-full object-cover">
+      <div class="p-6">
+        <h3 class="text-lg font-semibold mb-2">Veg Manchurian</h3>
+        <p class="text-sm text-gray-400 mb-4">
+          Deep-fried veg balls in hot garlic sauce.
+        </p>
+        <div class="flex justify-between items-center">
+          <span class="text-[#fcbf49] font-bold text-lg">₹189</span>
+          <button class="px-5 py-2 bg-[#fcbf49] text-black rounded-full text-sm font-semibold">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NON VEG -->
+    <div class="card rounded-xl overflow-hidden menu-item" data-category="nonveg spicy">
+      <img src="assets/schezwan-fried-rice.jpg" class="h-52 w-full object-cover">
+      <div class="p-6">
+        <h3 class="text-lg font-semibold mb-2">Schezwan Chicken Rice</h3>
+        <p class="text-sm text-gray-400 mb-4">
+          Spicy rice tossed with chicken & schezwan sauce.
+        </p>
+        <div class="flex justify-between items-center">
+          <span class="text-[#fcbf49] font-bold text-lg">₹239</span>
+          <button class="px-5 py-2 bg-[#fcbf49] text-black rounded-full text-sm font-semibold">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- VEG -->
+    <div class="card rounded-xl overflow-hidden menu-item" data-category="veg bestseller">
+      <img src="assets/fried-rice.jpg" class="h-52 w-full object-cover">
+      <div class="p-6">
+        <h3 class="text-lg font-semibold mb-2">Veg Fried Rice</h3>
+        <p class="text-sm text-gray-400 mb-4">
+          Aromatic rice stir-fried with vegetables.
+        </p>
+        <div class="flex justify-between items-center">
+          <span class="text-[#fcbf49] font-bold text-lg">₹149</span>
+          <button class="px-5 py-2 bg-[#fcbf49] text-black rounded-full text-sm font-semibold">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NON VEG -->
+    <div class="card rounded-xl overflow-hidden menu-item" data-category="nonveg">
+      <img src="assets/chicken-noodles.jpg" class="h-52 w-full object-cover">
+      <div class="p-6">
+        <h3 class="text-lg font-semibold mb-2">Chicken Noodles</h3>
+        <p class="text-sm text-gray-400 mb-4">
+          Street-style chicken noodles with sauces.
+        </p>
+        <div class="flex justify-between items-center">
+          <span class="text-[#fcbf49] font-bold text-lg">₹199</span>
+          <button class="px-5 py-2 bg-[#fcbf49] text-black rounded-full text-sm font-semibold">Add</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-6 text-center text-gray-500 text-sm border-t border-white/10">
+  © 2026 Burger Hut • Chinese Kitchen
+</footer>
+
+<!-- FILTER SCRIPT -->
+<script>
+function filterMenu(category){
+  const items = document.querySelectorAll('.menu-item');
+  const buttons = document.querySelectorAll('.filter-btn');
+
+  buttons.forEach(btn=>{
+    btn.classList.remove('bg-[#fcbf49]','text-black');
+    btn.classList.add('border','border-white/20');
+  });
+
+  event.target.classList.add('bg-[#fcbf49]','text-black');
+  event.target.classList.remove('border','border-white/20');
+
+  items.forEach(item=>{
+    if(category==='all' || item.dataset.category.includes(category)){
+      item.style.display='block';
+      item.style.opacity=0;
+      setTimeout(()=>item.style.opacity=1,80);
+    } else {
+      item.style.display='none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>

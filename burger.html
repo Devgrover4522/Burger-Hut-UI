@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<title>Burger Hut | Special Burger Menu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explore Burger Hut’s special burger menu. Veg, Non-Veg, Premium & Spicy burgers crafted to perfection.">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class'}</script>
+
+<style>
+.card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(14px);
+  transition:.4s;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 30px 60px rgba(252,191,73,.2);
+}
+</style>
+</head>
+
+<body class="bg-[#0b0b0b] text-gray-100">
+
+<!-- HEADER -->
+<header class="sticky top-0 z-50 bg-black/70 backdrop-blur border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="text-xl font-extrabold tracking-widest text-[#fcbf49]">
+      BURGER HUT
+    </a>
+    <a href="index.html" class="text-sm text-gray-400 hover:text-[#fcbf49]">
+      ← Back to Home
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="py-24 text-center">
+  <p class="text-[#fcbf49] uppercase tracking-[0.35em] text-sm mb-4">
+    Special Menu
+  </p>
+  <h1 class="text-4xl sm:text-5xl font-extrabold mb-6">
+    Crafted Burgers<br>
+    <span class="text-[#fcbf49]">For Every Mood</span>
+  </h1>
+  <p class="text-gray-400 max-w-xl mx-auto">
+    From classic veg to premium flame-grilled creations — filter and find your perfect bite.
+  </p>
+</section>
+
+<!-- FILTER BUTTONS -->
+<section class="pb-16">
+  <div class="max-w-5xl mx-auto px-6 flex flex-wrap justify-center gap-4">
+
+    <button onclick="filterMenu('all')" class="filter-btn px-6 py-2 rounded-full bg-[#fcbf49] text-black font-semibold">
+      All
+    </button>
+
+    <button onclick="filterMenu('veg')" class="filter-btn px-6 py-2 rounded-full border border-white/20 hover:border-[#fcbf49]">
+      Veg
+    </button>
+
+    <button onclick="filterMenu('nonveg')" class="filter-btn px-6 py-2 rounded-full border border-white/20 hover:border-[#fcbf49]">
+      Non-Veg
+    </button>
+
+    <button onclick="filterMenu('premium')" class="filter-btn px-6 py-2 rounded-full border border-white/20 hover:border-[#fcbf49]">
+      Premium
+    </button>
+
+    <button onclick="filterMenu('spicy')" class="filter-btn px-6 py-2 rounded-full border border-white/20 hover:border-[#fcbf49]">
+      Spicy
+    </button>
+
+  </div>
+</section>
+
+<!-- MENU GRID -->
+<section class="pb-28">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+
+    <!-- VEG -->
+    <div class="card rounded-xl overflow-hidden menu-item" data-category="veg">
+      <img src="assets/veg burger.jpg" class="h-52 w-full object-cover">
+      <div class="p-6">
+        <h3 class="text-lg font-semibold mb-2">Veg Supreme Burger</h3>
+        <p class="text-sm text-gray-400 mb-4">
+          Crispy veg patty, fresh lettuce & creamy sauce.
+        </p>
+        <div class="flex justify-between items-center">
+          <span class="text-[#fcbf49] font-bold text-lg">₹149</span>
+          <button class="px-5 py-2 bg-[#fcbf49] text-black rounded-full text-sm font-semibold">
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NON VEG -->
+    <div class="card rounded-xl overflow-hidden menu-item" data-category="nonveg">
+      <img src="assets/double-patty.webp" class="h-52 w-full object-cover">
+      <div class="p-6">
+        <h3 class="text-lg font-semibold mb-2">Double Patty Burger</h3>
+        <p class="text-sm text-gray-400 mb-4">
+          Two flame-grilled patties layered with cheese.
+        </p>
+        <div class="flex justify-between items-center">
+          <span class="text-[#fcbf49] font-bold text-lg">₹249</span>
+          <button class="px-5 py-2 bg-[#fcbf49] text-black rounded-full text-sm font-semibold">
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREMIUM -->
+    <div class="card rounded-xl overflow-hidden menu-item" data-category="premium">
+      <img src="assets/premium-burger.jpg" class="h-52 w-full object-cover">
+      <div class="p-6">
+        <h3 class="text-lg font-semibold mb-2">Signature Gourmet Burger</h3>
+        <p class="text-sm text-gray-400 mb-4">
+          Brioche bun, premium beef & chef’s sauce.
+        </p>
+        <div class="flex justify-between items-center">
+          <span class="text-[#fcbf49] font-bold text-lg">₹349</span>
+          <button class="px-5 py-2 bg-[#fcbf49] text-black rounded-full text-sm font-semibold">
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPICY -->
+    <div class="card rounded-xl overflow-hidden menu-item" data-category="spicy">
+      <img src="assets/spicy burger.jpg" class="h-52 w-full object-cover">
+      <div class="p-6">
+        <h3 class="text-lg font-semibold mb-2">Spicy Inferno Burger</h3>
+        <p class="text-sm text-gray-400 mb-4">
+          Loaded with fiery sauce & jalapeños.
+        </p>
+        <div class="flex justify-between items-center">
+          <span class="text-[#fcbf49] font-bold text-lg">₹229</span>
+          <button class="px-5 py-2 bg-[#fcbf49] text-black rounded-full text-sm font-semibold">
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NON VEG -->
+    <div class="card rounded-xl overflow-hidden menu-item" data-category="nonveg">
+      <img src="assets/chicken-burger.jpg" class="h-52 w-full object-cover">
+      <div class="p-6">
+        <h3 class="text-lg font-semibold mb-2">Crispy Chicken Burger</h3>
+        <p class="text-sm text-gray-400 mb-4">
+          Crunchy chicken fillet with mayo.
+        </p>
+        <div class="flex justify-between items-center">
+          <span class="text-[#fcbf49] font-bold text-lg">₹199</span>
+          <button class="px-5 py-2 bg-[#fcbf49] text-black rounded-full text-sm font-semibold">
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- VEG -->
+    <div class="card rounded-xl overflow-hidden menu-item" data-category="veg">
+      <img src="assets/cheese burger.jpg" class="h-52 w-full object-cover">
+      <div class="p-6">
+        <h3 class="text-lg font-semibold mb-2">Cheese Lover’s Burger</h3>
+        <p class="text-sm text-gray-400 mb-4">
+          Extra cheese, soft bun & creamy texture.
+        </p>
+        <div class="flex justify-between items-center">
+          <span class="text-[#fcbf49] font-bold text-lg">₹179</span>
+          <button class="px-5 py-2 bg-[#fcbf49] text-black rounded-full text-sm font-semibold">
+            Add
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-6 text-center text-gray-500 text-sm border-t border-white/10">
+  © 2026 Burger Hut • Crafted Layer by Layer
+</footer>
+
+<!-- FILTER SCRIPT -->
+<script>
+function filterMenu(category){
+  const items = document.querySelectorAll('.menu-item');
+  const buttons = document.querySelectorAll('.filter-btn');
+
+  buttons.forEach(btn=>{
+    btn.classList.remove('bg-[#fcbf49]','text-black');
+    btn.classList.add('border','border-white/20');
+  });
+
+  event.target.classList.add('bg-[#fcbf49]','text-black');
+  event.target.classList.remove('border','border-white/20');
+
+  items.forEach(item=>{
+    if(category==='all' || item.dataset.category===category){
+      item.style.display='block';
+      item.style.opacity=0;
+      setTimeout(()=>item.style.opacity=1,80);
+    } else {
+      item.style.display='none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
